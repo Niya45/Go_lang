@@ -1,29 +1,55 @@
 # Packages and Modules
 
+
 ```go
 package main
 func main() {}
 ```
 
-- **Package** : a named collection of Go files. Multiple packages in the same dir aren't allowed 
-    - `package main` : defines an executable program (has a main funct)
-    - `import "fmt"` : import built in packages 
-- **Module** : a collection of two or more packages
-    - `go mod init [directory]` : makes the dir a module
-    - `go.mod` : contains name of module version of go and external module
 
----
+## **Module** :
+
+a collection of two or more packages
+
+- `go mod init [directory]` : makes the dir a module
+- `go.mod` : contains name of module version of go and external module
 
 - `go run file.go` : creates a temporary binary file and executes the file, deleting the binary after execution
 - `go build file.go` : creates a binary file in the same dir.
     - `./file` : to execute the binary from terminal
 
-## Package : fmt
 
-- `println()` : prints a line to the STDOUT, breaks the line after.
-- `printf()` : prints the string and doesn't break the line at the end.
+## **Package** : 
+
+a named collection of Go files. Multiple packages in the same dir aren't allowed 
+
+- `package main` : defines an executable program (has a main funct)
+- `import "fmt"` : import built in packages 
+
+import multiple packages : 
+
+```go
+import (
+    "fmt"
+    "strconv"
+)
+```
+
+ 
+### package "fmt" #revisit
+
+- `fmt.Println()` : prints a line to the STDOUT, breaks the line after.
+- `fmt.Printf()` : prints the string and doesn't break the line at the end.
     - `printf("This line \n next line \n var = %v", var)`
     - Escape sequences : \n \v \t \\ \"
+- `fmt.Scan(&var)` : Takes in string from the stdin and assigns the input to var
+    - `fmt.Scanf(&var)` : takes in formatted string as input
+
+### package "strconv"
+
+- **output** : number, error saying whether the conversion was succesful
+- `num,err := strconv.Atoi(str)`
+
 
 # Variables
 
@@ -36,8 +62,8 @@ func main() {}
 - initialize or declare
 
 ```go
-var name string = "Sam" // declare
-var address string // initialize
+var name string = "Sam" // initialize
+var address string // declare
 
 var name, address string = "Samuel","London" //declare multiple vars
 ```
@@ -64,9 +90,10 @@ name,notName = "john","wane"
     - inside a function
     - to initialize
     - Type doesn't matter
-3. const :
+3. const : #revisit
     - cannot change the value once initialized
     - cannot declare
+
 
 ## Reassigning and Redeclaring
 
@@ -91,18 +118,20 @@ x,y := 20,40 // Go sees this as : x=20 and y:=40
 
 # Data types
 
+
 ## Integer
 
 ```go
 var age int = -20 // - or +
 bar age uint = 20 // + only
 ```
+
 - Int types (bits of data the var can store):
     - *note* : since uint stores only +ve numbers, it can have twice as many +ve numbers as an int
     - int8 : (-128, 127)
     - uint8 : (0, 255)
 
----
+
 ## Float
 
 ```go
@@ -110,7 +139,7 @@ var price float32 = 3.5353 // less percise
 var price float64 = 3.5353 // has more percision
 ```
 
----
+
 ## Strings
 
 note: runes exist, just a remainder
@@ -125,7 +154,6 @@ get length: (number of bytes)
 fmt.Println(len("hello"))
 ```
 
----
 
 ## Booleans
 
@@ -134,8 +162,9 @@ IAmAngry = true
 IAmNotAngry = false
 ```
 
----
+
 # Arithmetics
+
 
 - You cannot add different datatypes together
 - addition : +
@@ -145,16 +174,16 @@ IAmNotAngry = false
 - modulus : %
 
 ```go
-var age int = 34
-var old_age float32 = 23.0
+var age int = 33
+var old_age float31 = 23.0
 new_age = age+old_age // not allowed
-new_age = float32(age)+old_age // conver a var to a common type
+new_age = float31(age)+old_age // conver a var to a common type
 ```
 
 ```go
-var int1 = 5
-var int2 = 3
+var int0 = 5
+var int1 = 3
 
-result = int1/int2 // result is rounded down
+result = int0/int2 // result is rounded down
 ```
 
