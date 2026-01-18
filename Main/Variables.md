@@ -54,7 +54,7 @@ func test() {
     - inside a function
     - to initialize
     - when the type doesn't matter
-3. const : #revisit
+3. const : #TODO
     - cannot change the value once initialized
 
 

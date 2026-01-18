@@ -36,7 +36,7 @@ import (
 ```
 
  
-### package "fmt" #revisit
+### package "fmt" #TODO
 
 - `fmt.Println()` : prints a line to the STDOUT, breaks the line after.
 - `fmt.Printf()` : prints the string and doesn't break the line at the end.

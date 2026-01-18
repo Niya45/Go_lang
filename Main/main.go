@@ -1,8 +1,9 @@
 package main
 
 func main() {
-	//parentFuncPackages()// packages.go
+	//parentFuncPackages()// basics.go
 	//parentFuncVars() // vars_dt.go
 	//parentFunction() // functions.go
-	parentControl()
+	//parentControl() // control_structures.go
+	arrayParentFunc() //arrays.go
 }
